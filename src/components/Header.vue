@@ -60,20 +60,18 @@ const menu = ref(
         </a>
       </div>
 
-      <button type="button" class="checkout-btn d-flex p-1">
+      <button type="button" class="checkout-btn d-flex px-2 py-1">
          <img src="@/assets/cart.svg" alt="">
         <span class="fw-bold flex-grow-1">VIEW CART (10)</span>
       </button>
     </div>
   </nav>
 
-  <div class="menu w-100 d-flex justify-content-center gap-2" style="background: #F6F6F6">
+  <div class="menu d-none w-100 d-lg-flex justify-content-center gap-2" style="background: #F6F6F6">
     <RouterLink v-for="(route, index) in menu" :key="index" :to="{name: route.routeName}" class="text-uppercase">
       {{route.text}}
     </RouterLink>
   </div>
-
-  <!-- .router-link-active -->
 </div>
 </template>
 
