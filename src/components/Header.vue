@@ -5,7 +5,31 @@ const menu = ref(
   [
     {
       text: 'home',
-      link
+      routeName: 'home'
+    },
+    {
+      text: 'vehicle',
+      routeName: 'vehicle'
+    },
+    {
+      text: 'tires',
+      routeName: 'tires'
+    },
+    {
+      text: 'wheels',
+      routeName: 'wheels'
+    },  
+    {
+      text: 'hardware',
+      routeName: 'hardware'
+    },
+    {
+      text: 'calculators',
+      routeName: 'calculators'
+    },
+     {
+      text: 'account',
+      routeName: 'account'
     }
   ]
 );
@@ -44,8 +68,12 @@ const menu = ref(
   </nav>
 
   <div class="menu w-100 d-flex justify-content-center gap-2" style="background: #F6F6F6">
-    <a href="#"> hello</a>
+    <RouterLink v-for="(route, index) in menu" :key="index" :to="{name: route.routeName}" class="text-uppercase">
+      {{route.text}}
+    </RouterLink>
   </div>
+
+  <!-- .router-link-active -->
 </div>
 </template>
 
@@ -53,6 +81,19 @@ const menu = ref(
 <style scoped>
 a {
   text-decoration: none;
+}
+
+.menu a {
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.1px;
+  color: #000000;
+}
+
+.menu a.router-link-active {
+  font-weight: 900;
+  color: #2BACE3;
 }
 .card-checkout {
   width: 320px;
