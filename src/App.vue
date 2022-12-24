@@ -7,3 +7,9 @@ import Header from "@/components/Header.vue";
   <Header />
   <RouterView />
 </template>
+
+<style scoped>
+body {
+  font-family: 'Nunito Sans', sans-serif;
+}
+</style>

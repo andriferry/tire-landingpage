@@ -3,40 +3,62 @@
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+<nav class="w-100 d-flex justify-content-between align-items-center py-5 px-3">
+  <div class="d-flex gap-2 align-items-center">
+    <img src="@/assets/logo.svg" alt="">
+
+    <p class="mb-0 fw-bolder h5">
+      (905) 793-1881
+    </p>
+  </div>
+
+
+  <div class="d-flex rounded-2 card-checkout flex-column gap-2 p-4">
+    <p class="mb-0">DYNAMIC MOTOR SPORTS INC</p>
+
+    <div class="d-flex align-items-center gap-2">
+      <a href="#" class="checkout-link mb-0">
+        VIEW ACCOUNT
+      </a>
+      |
+      <a href="#" class="checkout-link mb-0">
+        SIGN OUT
+      </a>
     </div>
+
+    <button type="button" class="checkout-btn d-flex p-1">
+       <img src="@/assets/cart.svg" alt="">
+      <span class="fw-bold flex-grow-1">VIEW CART (10)</span>
+    </button>
   </div>
 </nav>
 </template>
+
+
+<style scoped>
+.card-checkout {
+  width: 320px;
+  background: #F6F6F6;
+}
+
+.card-checkout  p {
+  font-size: 12px;
+}
+
+.checkout-link {
+  text-decoration: none;
+  font-size: 12px;
+  color: #00A6EB
+}
+
+.checkout-btn {
+  background-color: #27AE60;
+  color: white; 
+  border-radius: 5px;
+  border: none;
+}
+
+.checkout-btn span {
+  font-size: 14px;
+}
+</style>
