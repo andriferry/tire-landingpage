@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue';
+import closeImg from '@/assets/close.svg' // => or relative path
+import menuImg from '@/assets/menu.svg' // => or relative path
+
 
 const menu = ref(
   [
@@ -33,10 +36,17 @@ const menu = ref(
     }
   ]
 );
+
+const openMenu = ref(false);
 </script>
 
 <template>
 <div class="d-flex flex-column">
+  <div class="p-3 w-100 d-flex justify-content-between">
+    <button class="menu-btn" @click="openMenu = !openMenu">
+      <img :src="openMenu ? closeImg : menuImg" alt="">
+    </button>
+  </div>
   <nav class="w-100 d-flex justify-content-between align-items-center p-3">
     <div class="d-flex gap-2 align-items-center">
       <img src="@/assets/logo.svg" alt="">
@@ -87,6 +97,11 @@ a {
   font-weight: 400;
   line-height: 19.1px;
   color: #000000;
+}
+
+.menu-btn {
+  border: none;
+  background: transparent;
 }
 
 .menu a.router-link-active {
