@@ -42,7 +42,7 @@ const openMenu = ref(false);
 
 <template>
 <div class="d-flex flex-column">
-  <div class="p-3 w-100 d-block d-lg-none">
+  <div class="p-3 w-100 d-block d-md-none">
     <div class="w-100 pb-3 border-bottom">
       <button data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" class="menu-btn" @click="openMenu = !openMenu">
         <img :src="openMenu ? closeImg : menuImg" alt="">
@@ -56,7 +56,8 @@ const openMenu = ref(false);
     </div>
 
   </div>
-  <nav class="w-100 d-flex justify-content-between align-items-center p-3">
+
+  <nav class="w-100 d-flex flex-column flex-md-row justify-content-md-between gap-4  p-3">
     <div class="d-flex gap-2 align-items-center">
       <img src="@/assets/logo.svg" alt="">
 
@@ -86,7 +87,7 @@ const openMenu = ref(false);
     </div>
   </nav>
 
-  <div class="menu d-none w-100 d-lg-flex justify-content-center gap-2" style="background: #F6F6F6">
+  <div class="menu d-none w-100 d-md-flex justify-content-center gap-2" style="background: #F6F6F6">
     <RouterLink v-for="(route, index) in menu" :key="index" :to="{name: route.routeName}" class="text-uppercase menulink">
       {{route.text}}
     </RouterLink>
@@ -118,8 +119,21 @@ a.router-link-active {
   color: #2BACE3;
 }
 .card-checkout {
-  width: 320px;
+  /* width: 320px; */
   background: #F6F6F6;
+}
+
+
+@media (min-width: 576px) { 
+  .card-checkout {
+    width: 100%;
+  } 
+}
+
+@media (min-width: 768px) {
+  .card-checkout {
+    width:  320px;
+  } 
 }
 
 .card-checkout  p {
