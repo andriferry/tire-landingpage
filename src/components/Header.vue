@@ -42,10 +42,19 @@ const openMenu = ref(false);
 
 <template>
 <div class="d-flex flex-column">
-  <div class="p-3 w-100 d-flex justify-content-between">
-    <button class="menu-btn" @click="openMenu = !openMenu">
-      <img :src="openMenu ? closeImg : menuImg" alt="">
-    </button>
+  <div class="p-3 w-100 d-block d-lg-none">
+    <div class="w-100 pb-3 border-bottom">
+      <button data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" class="menu-btn" @click="openMenu = !openMenu">
+        <img :src="openMenu ? closeImg : menuImg" alt="">
+      </button>
+    </div>
+
+    <div class="list-group list-group-flush collapse" id="collapseExample">
+      <RouterLink v-for="(route, index) in menu" :key="index" :to="{name: route.routeName}" class="text-uppercase menulink list-group-item">
+         {{route.text}}
+      </RouterLink>
+    </div>
+
   </div>
   <nav class="w-100 d-flex justify-content-between align-items-center p-3">
     <div class="d-flex gap-2 align-items-center">
@@ -78,7 +87,7 @@ const openMenu = ref(false);
   </nav>
 
   <div class="menu d-none w-100 d-lg-flex justify-content-center gap-2" style="background: #F6F6F6">
-    <RouterLink v-for="(route, index) in menu" :key="index" :to="{name: route.routeName}" class="text-uppercase">
+    <RouterLink v-for="(route, index) in menu" :key="index" :to="{name: route.routeName}" class="text-uppercase menulink">
       {{route.text}}
     </RouterLink>
   </div>
@@ -91,7 +100,7 @@ a {
   text-decoration: none;
 }
 
-.menu a {
+.menulink {
   padding: 10px;
   font-size: 14px;
   font-weight: 400;
@@ -104,7 +113,7 @@ a {
   background: transparent;
 }
 
-.menu a.router-link-active {
+a.router-link-active {
   font-weight: 900;
   color: #2BACE3;
 }
